@@ -1,0 +1,149 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  position: fixed;
+  min-height: 7vh;
+  max-height: 7vh;
+   left: 0;
+   top: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+   align-items: center;
+   justify-content: center;
+   float: left;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App-footer {
+  background-color: #282c34;
+  position: fixed;
+  min-height: 7vh;
+  max-height: 7vh;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align: center;
+   align-items: center;
+   justify-content: center;
+}
+.card{
+  width: 240px;
+  height: 330px;;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+ }
+ 
+ .right_align_data{
+  align-items: flex-end;
+   margin-right: 10px;
+ }
+ .imageAlign{
+   float: left;
+   margin: 10px; 
+ }
+ #alignRight{
+  /* float: right; */
+  margin-left: 300px;
+
+ }
+ #alignRightFeature{
+  margin-left: 260px;
+ }
+ 
+ #item_align{
+  font-size: 14px;
+  text-align: left;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-family: bold;
+  max-height: 2.4em; /* (Number of lines you want visible) * (line-height) */
+  line-height: 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+ }
+ .pagination_nav{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+ }
+
+ #filterRow{
+
+  margin-top: 50px;
+
+ }
+ #itemContainer{
+  float: left;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+ }
+ div.cartAlign{
+  text-align: right;
+    color:black;
+    align-content: flex-end;
+    float: right;
+ }
+ .cartImage{
+   width: 30px;
+   height: 30px;
+   align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+ }
+
+ #leftbox { 
+  float:left; 
+  width:45%; 
+  height:30px; 
+  font-size: 12px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+} 
+#rightbox{ 
+  float:right; 
+  width:45%; 
+  height:30px; 
+  font-size: 12px;
+  margin-left: 2px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+} 
+
+#pagination-row{
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  bottom: 0;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
