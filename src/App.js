@@ -19,7 +19,7 @@ const App = () => {
     const fetchitems = async () => {
       const res = await axios.get('product_list.json');
       const productsList = getAllProduct(res.data);
- //     console.log(productsList);
+      //     console.log(productsList);
       setItems(productsList);
       setProductItems(productsList);
       setLoading(false);
@@ -64,7 +64,7 @@ const App = () => {
       </div>
       <div className="row">
         <Items
-          items={currentItems} loading={loading} /*handleOnClick={productItemClick.bind(this)} *//>
+          items={currentItems} loading={loading} /*handleOnClick={productItemClick.bind(this)} */ />
       </div>
       <div className="row" id="pagination-row">
         <Pagination itemsPerPage={itemsPerPage}
@@ -121,6 +121,7 @@ const getExpiryProduct = ((productsList, arrayOfExpiredProducts = []) => {
 
 
 const getGoingToExpireProduct = (allProducts) => {
+  var currentDate = new Date();
   var goingToExpiredPro = allProducts.filter(function (element) {
     var warrantyP = element.warrantyPeriod.charAt(0);
     if (isNaN(warrantyP)) {
@@ -139,7 +140,6 @@ const getGoingToExpireProduct = (allProducts) => {
     var month = orderedDate.getMonth();
     var day = orderedDate.getDate();
     var expiryDate = new Date(year + (warrantyP + extendedW), month, day);
-    var currentDate = new Date();
     const diffTime = Math.abs(currentDate.getTime() - expiryDate.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     // console.log(diffDays);
