@@ -14,14 +14,14 @@ class ItemDetails extends Component {
                 </div>
                 <div className="right_align_data">
                     <div>
+                    <button className="btn btn-primary">Add to Cart</button>
                         <Link
                             to={{
-                                pathname: "/ItemDetails",
+                                pathname: "/OrderPayment",
                                 state: { data: itemDetails }
                             }}>
-                            <button className="btn btn-primary">Add to Cart</button>
-                        </Link>
                         <button className="btn btn-warning"  style={{marginLeft:"50px"}} >Buy Now</button>
+                        </Link>
                     </div>
                 </div>
                 <div className="right_align_data">

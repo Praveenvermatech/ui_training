@@ -7,6 +7,7 @@ import Items from './components/Items';
 import Pagination from './components/Pagination';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Filter from './components/Filter';
+import Slider from './components/Slider';
 
 const App = () => {
   const [items, setItems] = useState([]);
@@ -58,6 +59,9 @@ const App = () => {
     <div className="container">
       <div className="row">
         <Header name="Universal Project" cartName="Cart" />
+      </div>
+      <div className="row" id="slideImage" style={{ marginTop: '-70px', padding: '150px' }}>
+        <Slider />
       </div>
       <div className="row" id="filterRow">
         <Filter handleChange={handleChange.bind(this)} />
