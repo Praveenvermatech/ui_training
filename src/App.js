@@ -37,7 +37,7 @@ const App = () => {
     setCurrentPage(pageNumber);
   }
 
-
+  // handle filters here
   const handleChange = (event) => {
     // alert(event.target.value);
     if (event.target.value === "Exipred") {
@@ -121,7 +121,6 @@ const getExpiryProduct = ((productsList, arrayOfExpiredProducts = []) => {
 
 
 const getGoingToExpireProduct = (allProducts) => {
-  var currentDate = new Date();
   var goingToExpiredPro = allProducts.filter(function (element) {
     var warrantyP = element.warrantyPeriod.charAt(0);
     if (isNaN(warrantyP)) {
@@ -140,6 +139,7 @@ const getGoingToExpireProduct = (allProducts) => {
     var month = orderedDate.getMonth();
     var day = orderedDate.getDate();
     var expiryDate = new Date(year + (warrantyP + extendedW), month, day);
+    var currentDate = new Date();
     const diffTime = Math.abs(currentDate.getTime() - expiryDate.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     // console.log(diffDays);
