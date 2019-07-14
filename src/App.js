@@ -7,6 +7,7 @@ import Items from './components/Items';
 import Pagination from './components/Pagination';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Filter from './components/Filter';
+import Slider from './components/Slider';
 
 const App = () => {
   const [items, setItems] = useState([]);
@@ -19,7 +20,7 @@ const App = () => {
     const fetchitems = async () => {
       const res = await axios.get('product_list.json');
       const productsList = getAllProduct(res.data);
- //     console.log(productsList);
+      //     console.log(productsList);
       setItems(productsList);
       setProductItems(productsList);
       setLoading(false);
@@ -37,7 +38,7 @@ const App = () => {
     setCurrentPage(pageNumber);
   }
 
-
+  // handle filters here
   const handleChange = (event) => {
     // alert(event.target.value);
     if (event.target.value === "Exipred") {
@@ -59,12 +60,15 @@ const App = () => {
       <div className="row">
         <Header name="Universal Project" cartName="Cart" />
       </div>
+      <div className="row" id="slideImage" style={{ marginTop: '-70px', padding: '150px' }}>
+        <Slider />
+      </div>
       <div className="row" id="filterRow">
         <Filter handleChange={handleChange.bind(this)} />
       </div>
       <div className="row">
         <Items
-          items={currentItems} loading={loading} /*handleOnClick={productItemClick.bind(this)} *//>
+          items={currentItems} loading={loading} /*handleOnClick={productItemClick.bind(this)} */ />
       </div>
       <div className="row" id="pagination-row">
         <Pagination itemsPerPage={itemsPerPage}

@@ -10,7 +10,7 @@
 
 .App-header {
   background-color: #282c34;
-  position: fixed;
+  position: absolute;
   min-height: 7vh;
   max-height: 7vh;
    left: 0;
@@ -95,7 +95,7 @@
 
  #filterRow{
 
-  margin-top: 50px;
+  margin-top: -200px;
 
  }
  #itemContainer{
@@ -146,4 +146,11 @@
   bottom: 0;
   margin-top: 50px;
   margin-bottom: 30px;
+}
+
+#slideImage{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  
 }
