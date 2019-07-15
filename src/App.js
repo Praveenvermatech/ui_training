@@ -8,21 +8,28 @@ import Pagination from './components/Pagination';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Filter from './components/Filter';
 import Slider from './components/Slider';
+import { connect } from 'react-redux'
 
-const App = () => {
+const App = (props) => {
+
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(4);
   const [productItems, setProductItems] = useState([]);
 
+
   useEffect(() => {
     const fetchitems = async () => {
       const res = await axios.get('product_list.json');
       const productsList = getAllProduct(res.data);
-      //     console.log(productsList);
+      console.log("Props " + props);
       setItems(productsList);
       setProductItems(productsList);
+      console.log("data Listing :" + productsList);
+      // call setProductItems to store data in central storage.
+      props.setProductItems(productsList);
+      // -------------------------------------------
       setLoading(false);
     };
     fetchitems();
@@ -43,7 +50,7 @@ const App = () => {
     // alert(event.target.value);
     if (event.target.value === "Exipred") {
       const expireProductsList = getExpiryProduct(items);
-      console.log(expireProductsList);
+      console.log(expireProductsList + "" + props);
       setItems(expireProductsList);
     } else if (event.target.value === "All Product") {
       console.log("All Products: " + productItems);
@@ -56,6 +63,7 @@ const App = () => {
   }
 
   return (
+
     <div className="container">
       <div className="row">
         <Header name="Universal Project" cartName="Cart" />
@@ -155,4 +163,19 @@ const getGoingToExpireProduct = (allProducts) => {
   return goingToExpiredPro;
 };
 
-export default App;
+// Store product items
+const mapStoreToProps = store => {
+  return {
+    saveItems: store.rSave.productItems
+  }
+}
+
+const mapDispatchToprops = dispatch => {
+  return {
+
+    setProductItems: saveItems => dispatch({ type: "SAVE_ITEMS", productItems: saveItems })
+
+  }
+}
+
+export default connect(mapStoreToProps, mapDispatchToprops)(App);
