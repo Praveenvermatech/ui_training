@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-
 const Items = props => {
 
-   
     if (props.loading) {
         return <h1>Loading...</h1>
     }
+
     return (<div>
         {props.items.map(item => (
             <div id="itemContainer">
@@ -18,14 +17,14 @@ const Items = props => {
                             <p class="card-title" id="item_align">{item.name}</p>
                             <p class="card-text">Rs. {item.price.toString()} </p>
                             <div>
-                            <button id="leftbox" className="btn btn-primary" >Add to Cart</button>
-                            <Link
-                                to={{
-                                    pathname: "/ItemDetails",
-                                    state: { data: item }
-                                }}>
-                                <button  id="rightbox" className="btn btn-warning" >View Detail</button>
-                            </Link>
+                                <button id="leftbox" className="btn btn-primary" >Add to Cart</button>
+                                <Link
+                                    to={{
+                                        pathname: "/ItemDetails",
+                                        state: { data: item }
+                                    }}>
+                                    <button id="rightbox" className="btn btn-warning" >View Detail</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -35,4 +34,17 @@ const Items = props => {
 };
 
 
-export default Items;
+
+// const mapStateToProps = (state) => {
+//     return {
+//         insertItems: state
+//     };
+// };
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         insertData: (productItems) => dispatch({ type: "INSERT_ITEMS", payload: productItems }),
+//         getData: () => dispatch({ type: "GET_ITEMS" }),
+//     };
+// };
+
+export default (Items);
